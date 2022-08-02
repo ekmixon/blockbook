@@ -33,10 +33,7 @@ def main():
     username = sys.argv[1]
 
     salt = generate_salt()
-    if len(sys.argv) > 2:
-        password = sys.argv[2]
-    else:
-        password = generate_password()
+    password = sys.argv[2] if len(sys.argv) > 2 else generate_password()
     password_hmac = password_to_hmac(salt, password)
 
     print('String to be appended to bitcoin.conf:')
